@@ -1,0 +1,64 @@
+## Basic Configuration
+
+baseurl = "https://maxdifolco.github.io/"
+builddrafts = false
+canonifyurls = false
+languageCode = "en-UK"
+
+contentdir = "content"
+layoutdir = "layouts"
+publishdir = "public"
+
+author = "Maxime Di Folco"
+title = "Maxime Di Folco"
+
+theme = "hugo-goa"
+
+## Hugo Built-in Features
+# disqusShortname = "discusShortname" # Enable if you want to use Disqus
+# googleAnalytics = "UA-XXXXXXXX-X" # Enable if you want to use Google Analytics
+enableRobotsTXT = true
+
+## Site Settings
+[params]
+author = "Maxime Di Folco, PhD"
+intro = "Assistant Professor in Computational Biomedical Imaging"
+description = "Télécom Paris - Institut Polytechnique Paris"
+authorimage = "headshot.jpg"
+dateformat = "Jan 2, 2006"
+
+## Site Meta Settings
+[params.meta]
+description = "Simple minimalist theme"
+keywords = "minimalist,blog,goa,hugo,developer"
+
+## Social Accounts
+[params.social]
+
+linkedin = "maximedf"
+googlescholar = "PVzoXrAAAAAJ&hl=fr&oi=ao"
+orcid = "0000-0001-6160-8050"
+
+## Extras
+[params.extra]
+copyright = "© 2026. Maxime Di Folco [Some Rights Reserved](http://creativecommons.org/licenses/by/3.0/)."
+poweredby = false
+highlightjs = true
+socialmarkup = false
+toc = true
+displayrssicon = false
+
+
+## Main Menu
+[[menu.main]]
+name = "about"
+identifier = "about"
+weight = 100
+url = "about/"
+toc = true
+[[menu.main]]
+name = "contact"
+identifier = "contact"
+weight = 200
+url = "contact/"
+

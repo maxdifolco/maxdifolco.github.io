@@ -1,0 +1,17 @@
+<section id="latest-posts" class="text-center posts">
+  <h3>Latest posts</h3>
+
+  {{ range first 3 (where site.RegularPages "Section" "posts") }}
+    <article class="post-preview">
+      <h4>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </h4>
+
+      {{ with .Summary }}
+        <p>{{ . }}</p>
+      {{ end }}
+
+      <small>{{ .Date.Format site.Params.dateformat }}</small>
+    </article>
+  {{ end }}
+</section>
