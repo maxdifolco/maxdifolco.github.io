@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Maxime Di Folco – Computational Biomedical Imaging, Télécom Paris</title>
+  <meta name="description" content="Maxime Di Folco, Assistant Professor at Télécom Paris (Institut Polytechnique de Paris). Multimodal AI combining medical imaging and clinical data for robust clinical decision support in cardiology and breast cancer.">
+  <meta name="author" content="Maxime Di Folco">
+  <link rel="canonical" href="https://maxdifolco.github.io/">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Maxime Di Folco, PhD">
+  <meta property="og:description" content="Assistant Professor in Computational Biomedical Imaging at Télécom Paris, Institut Polytechnique de Paris.">
+  <meta property="og:url" content="https://maxdifolco.github.io/">
+  <meta property="og:image" content="https://maxdifolco.github.io/images/headshot-web.jpg">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="stylesheet.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Maxime Di Folco",
+    "jobTitle": "Assistant Professor",
+    "affiliation": { "@type": "Organization", "name": "Télécom Paris, Institut Polytechnique de Paris" },
+    "url": "https://maxdifolco.github.io/",
+    "image": "https://maxdifolco.github.io/images/headshot-web.jpg",
+    "sameAs": [
+      "https://scholar.google.com/citations?user=PVzoXrAAAAAJ",
+      "https://orcid.org/0000-0001-6160-8050",
+      "https://github.com/maxdifolco",
+      "https://linkedin.com/in/maximedf"
+    ]
+  }
+  </script>
+
+  <!-- Apply the saved theme before the page paints, so there is no flash. -->
+  <script>
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  </script>
+
+  <script>
+  /* =====================================================================
+     SITE DATA: edit here. One line per item.
+     - news:   newest first. `text` may contain HTML links.
+     - papers: `date` (YYYY-MM) sorts them; `project` places them on the
+               Research page; `thumb` is optional (images/papers/<file>).
+               "Maxime Di Folco" is bolded automatically.
+     - team:   `group` is one of "phd", "master", "alumni".
+               `photo` (images/team/<file>) and `link` are optional.
+     ===================================================================== */
+  var NEWS = [
+    { date: "12.2025", text: '<a href="https://arxiv.org/abs/2512.19602">“No Data? No Problem”</a>, robust vision-tabular learning with missing values, released on arXiv.' },
+    { date: "MM.2025", text: "Started as Assistant Professor (Maître de conférences) at Télécom Paris." },
+    { date: "03.2025", text: '<a href="https://arxiv.org/abs/2503.14998">“Tables Guide Vision (TGV)”</a> released on arXiv.' },
+    { date: "01.2025", text: '<a href="https://arxiv.org/abs/2501.12178">“Visualizing definitional divergence”</a> released on arXiv.' },
+  ];
+
+  var PAPERS = [
+    { id: "nodata", date: "2025-12", project: "tabular",
+      title: "No Data? No Problem: Robust Vision-Tabular Learning with Missing Values",
+      authors: "Marta Hasny, Laura Daza, Keno Bressem, Maxime Di Folco, Julia A. Schnabel",
+      venue: "arXiv preprint", year: 2025,
+      links: { paper: "https://arxiv.org/abs/2512.19602" }, thumb: "images/papers/nodata.png" },
+    { id: "tgv", date: "2025-03", project: "tabular",
+      title: "Tables Guide Vision: Learning to See the Heart through Tabular Data",
+      authors: "Marta Hasny, Maxime Di Folco, Keno Bressem, Julia A. Schnabel",
+      venue: "arXiv preprint", year: 2025,
+      links: { paper: "https://arxiv.org/abs/2503.14998" }, thumb: "images/papers/tgv.png" },
+    { id: "divergence", date: "2025-01", project: "cardiac",
+      title: "Visualizing definitional divergence in high-dimensional data by manifold alignment: Application to 3D right ventricular strain computations",
+      authors: "Maxime Di Folco, Gabriel Bernardino, Patrick Clarysse, Nicolas Duchateau",
+      venue: "IEEE Transactions on Medical Imaging", year: 2026,
+      links: { paper: "https://arxiv.org/abs/2501.12178", code: "https://github.com/maxdifolco/definitional_divergence" },
+      thumb: "images/papers/divergence.png" },
+    { id: "shape-deformation", date: "2022-01", project: "cardiac",
+      title: "Characterizing interactions between cardiac shape and deformation by non-linear manifold learning",
+      authors: "Maxime Di Folco, Pamela Moceri, Patrick Clarysse, Nicolas Duchateau",
+      venue: "Medical Image Analysis, vol. 75, 102278", year: 2022,
+      links: { paper: "https://hal.science/hal-03407714" }, thumb: "images/papers/shape-deformation.png" },
+  ];
+
+  var PROJECTS = [
+    { id: "cardiac",
+      title: "Characterisation of cardiac shape and deformation",
+      focus: "Focus: right ventricle, 3D echocardiography.",
+      text: "Rich descriptors of cardiac function (3D shape, myocardial deformation) are usually reduced to scalars like volumes or ejection fraction. This project keeps them high-dimensional and uses manifold learning and manifold alignment to study how shape and deformation relate, how they change with disease, and how much they depend on how they are computed." },
+    { id: "tabular",
+      title: "Combining vision and tabular data",
+      focus: "Applications include cardiac MRI from the UK Biobank.",
+      text: "Large biobanks pair medical images with hundreds of clinical attributes. This project develops vision-tabular models that use tabular information to learn better image representations and that keep working when clinical data is partly or completely missing at inference." },
+  ];
+
+  var TEAM = [
+    { group: "phd",    name: "Firstname Lastname", role: "PhD student", years: "2025–", topic: "Placeholder thesis topic", photo: "", link: "" },
+    { group: "phd",    name: "Firstname Lastname", role: "PhD student (co-supervised)", years: "2025–", topic: "Placeholder thesis topic", photo: "", link: "" },
+    { group: "master", name: "Firstname Lastname", role: "Master's intern", years: "2026", topic: "Placeholder internship topic", photo: "", link: "" },
+    { group: "alumni", name: "Firstname Lastname", role: "Master's intern", years: "2025", topic: "Placeholder topic, now at …", photo: "", link: "" },
+  ];
+  </script>
+</head>
+
+<body>
+  <nav class="topnav" aria-label="Main">
+    <div class="container">
+      <a class="brand" href="#home">Maxime Di Folco<span class="brand-long">, PhD</span></a>
+      <div class="navlinks">
+        <a href="#home" data-page="home">Home</a>
+        <a href="#research" data-page="research">Research</a>
+        <a href="#team" data-page="team">Team</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M1.5 12H4M20 12h2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- ============================ HOME ============================ -->
+    <div class="page" id="page-home">
+      <section class="profile">
+        <div class="profile-text">
+          <h1 class="name">Maxime Di Folco, PhD</h1>
+          <p class="subtitle">Assistant Professor in Computational Biomedical Imaging</p>
+          <p class="affiliation">Télécom Paris, Institut Polytechnique de Paris</p>
+
+          <p>I am an Assistant Professor (Maître de conférences) at <a href="https://www.telecom-paris.fr/">Télécom Paris</a>, working on multimodal artificial intelligence for robust clinical decision support. My research integrates medical imaging and clinical data, with applications in cardiology and breast cancer, aiming to make AI-based clinical models more reliable, generalisable and fair.</p>
+          <p>Before this, I was a postdoctoral researcher in cardiac imaging at Helmholtz Munich and the Technical University of Munich, in the group of Prof. Julia Schnabel, working on representation learning for cardiac imaging and multimodal data. I did my PhD at Université de Lyon (CREATIS) with Nicolas Duchateau and Patrick Clarysse, on manifold learning to model and analyse cardiac function.</p>
+
+          <ul class="links">
+            <li><a href="mailto:maxime.difolco@telecom-paris.fr">Email</a></li>
+            <li><a href="https://scholar.google.com/citations?user=PVzoXrAAAAAJ&amp;hl=fr">Google Scholar</a></li>
+            <li><a href="https://orcid.org/0000-0001-6160-8050">ORCID</a></li>
+            <li><a href="https://github.com/maxdifolco">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/maximedf">LinkedIn</a></li>
+          </ul>
+
+          <p class="callout">I am happy to hear from students interested in a Master's thesis, PhD or postdoc. Write to me at <a href="mailto:maxime.difolco@telecom-paris.fr">maxime.difolco@telecom-paris.fr</a>.</p>
+        </div>
+        <div class="profile-photo">
+          <img src="images/headshot-web.jpg" alt="Portrait of Maxime Di Folco" width="220" height="220">
+        </div>
+      </section>
+
+      <section>
+        <h2>News</h2>
+        <div class="news-box"><ul id="news-list"></ul></div>
+      </section>
+
+      <section>
+        <h2>Recent articles</h2>
+        <ul class="papers" id="recent-papers"></ul>
+        <p><a href="#research">See all research →</a></p>
+      </section>
+    </div>
+
+    <!-- ========================== RESEARCH ========================== -->
+    <div class="page" id="page-research">
+      <section>
+        <h2>Research</h2>
+        <p class="intro">I build machine learning methods that combine medical images with the clinical information that comes with them, so that models describe patients more completely and stay reliable when data is incomplete.</p>
+      </section>
+      <div id="projects"></div>
+      <p>Full list of publications on <a href="https://scholar.google.com/citations?user=PVzoXrAAAAAJ&amp;hl=fr">Google Scholar</a>.</p>
+    </div>
+
+    <!-- ============================ TEAM ============================ -->
+    <div class="page" id="page-team">
+      <section>
+        <h2>Team</h2>
+        <div id="team-groups"></div>
+      </section>
+      <p class="callout"><strong>Join the team.</strong> I am looking for motivated students and researchers for Master's internships, PhD positions and postdocs in multimodal AI for medical imaging. Send your CV and a short description of your interests to <a href="mailto:maxime.difolco@telecom-paris.fr">maxime.difolco@telecom-paris.fr</a>.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year">2026</span> Maxime Di Folco ·
+      Design adapted from <a href="https://github.com/jonbarron/jonbarron.github.io">Jon Barron's website</a>
+    </div>
+  </footer>
+
+  <script>
+    var ME = "Maxime Di Folco";
+
+    function esc(s) {
+      return String(s).replace(/[&<>"]/g, function (c) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+      });
+    }
+
+    function paperHTML(p) {
+      var authors = esc(p.authors).replace(ME, "<strong>" + ME + "</strong>");
+      var links = Object.keys(p.links || {}).map(function (k) {
+        return '<a href="' + esc(p.links[k]) + '">' + esc(k) + "</a>";
+      }).join("");
+      var thumb = p.thumb
+        ? '<div class="paper-thumb"><img src="' + esc(p.thumb) + '" alt="" loading="lazy" onerror="this.parentNode.remove()"></div>'
+        : "";
+      return '<li class="paper">' + thumb +
+        '<div class="paper-body">' +
+          '<a class="papertitle" href="' + esc((p.links || {}).paper || "#") + '">' + esc(p.title) + "</a>" +
+          '<p class="paper-authors">' + authors + "</p>" +
+          '<p class="paper-venue"><em>' + esc(p.venue) + "</em>, " + esc(p.year) + "</p>" +
+          (links ? '<p class="paper-links">' + links + "</p>" : "") +
+        "</div></li>";
+    }
+
+    function byDateDesc(a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; }
+
+    function initials(name) {
+      return name.split(/\s+/).map(function (w) { return w[0]; }).join("").slice(0, 2).toUpperCase();
+    }
+
+    function personHTML(m) {
+      var avatar = m.photo
+        ? '<img class="avatar" src="' + esc(m.photo) + '" alt="">'
+        : '<div class="avatar" aria-hidden="true">' + esc(initials(m.name)) + "</div>";
+      var name = m.link ? '<a href="' + esc(m.link) + '">' + esc(m.name) + "</a>" : esc(m.name);
+      return '<div class="person">' + avatar + "<div>" +
+        '<div class="person-name">' + name + "</div>" +
+        '<p class="person-role">' + esc(m.role) + (m.years ? ", " + esc(m.years) : "") + "</p>" +
+        '<p class="person-topic">' + esc(m.topic) + "</p>" +
+        "</div></div>";
+    }
+
+    // News
+    document.getElementById("news-list").innerHTML = NEWS.map(function (n) {
+      return '<li><span class="news-date">' + esc(n.date) + "</span><span>" + n.text + "</span></li>";
+    }).join("");
+
+    // Recent articles (4 newest)
+    var sorted = PAPERS.slice().sort(byDateDesc);
+    document.getElementById("recent-papers").innerHTML = sorted.slice(0, 4).map(paperHTML).join("");
+
+    // Research projects
+    document.getElementById("projects").innerHTML = PROJECTS.map(function (pr) {
+      var papers = sorted.filter(function (p) { return p.project === pr.id; });
+      return '<section class="project" id="project-' + esc(pr.id) + '">' +
+        "<h3>" + esc(pr.title) + "</h3>" +
+        "<p>" + esc(pr.text) + "</p>" +
+        (pr.focus ? '<p class="project-focus">' + esc(pr.focus) + "</p>" : "") +
+        '<ul class="papers">' + papers.map(paperHTML).join("") + "</ul></section>";
+    }).join("");
+
+    // Team
+    var GROUPS = [["phd", "PhD students"], ["master", "Master's students"], ["alumni", "Alumni"]];
+    document.getElementById("team-groups").innerHTML = GROUPS.map(function (g) {
+      var people = TEAM.filter(function (m) { return m.group === g[0]; });
+      return "<h3>" + g[1] + "</h3>" + (people.length
+        ? '<div class="people">' + people.map(personHTML).join("") + "</div>"
+        : '<p class="empty">No one yet.</p>');
+    }).join("");
+
+    // Hash routing: #home, #research, #team
+    var PAGES = ["home", "research", "team"];
+    function route() {
+      var page = location.hash.replace("#", "");
+      if (PAGES.indexOf(page) === -1) page = "home";
+      PAGES.forEach(function (p) {
+        document.getElementById("page-" + p).classList.toggle("active", p === page);
+      });
+      document.querySelectorAll(".navlinks a").forEach(function (a) {
+        a.classList.toggle("active", a.getAttribute("data-page") === page);
+      });
+      window.scrollTo(0, 0);
+    }
+    window.addEventListener("hashchange", route);
+    route();
+
+    // Dark mode toggle
+    document.getElementById("theme-toggle").addEventListener("click", function () {
+      var root = document.documentElement;
+      var current = root.getAttribute("data-theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      var next = current === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+    });
+    if (!document.documentElement.getAttribute("data-theme") &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
