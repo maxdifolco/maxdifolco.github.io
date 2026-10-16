@@ -64,8 +64,11 @@
                  `photo` (images/team/<file>) and `link` are optional.
      ===================================================================== */
   var NEWS = [
+    { date: "09.2026", text: "Organised the Multitab Workshop at MICCAI 2026." },
+    { date: "07.2026", text: "Marta Hasny presented her paper at ICML 2026." },
+    { date: "06.2026", text: '<a href="https://arxiv.org/abs/2501.12178">“Visualizing definitional divergence”</a> accepted in IEEE Transactions on Medical Imaging.' },
+    { date: "12.2025", text: "Started as Associate Professor (Maître de conférences) at Télécom Paris." },
     { date: "12.2025", text: '<a href="https://arxiv.org/abs/2512.19602">“No Data? No Problem”</a>, robust vision-tabular learning with missing values, released on arXiv.' },
-    { date: "MM.2025", text: "Started as Assistant Professor (Maître de conférences) at Télécom Paris." },
     { date: "03.2025", text: '<a href="https://arxiv.org/abs/2503.14998">“Tables Guide Vision (TGV)”</a> released on arXiv.' },
     { date: "01.2025", text: '<a href="https://arxiv.org/abs/2501.12178">“Visualizing definitional divergence”</a> released on arXiv.' },
   ];
@@ -170,7 +173,7 @@
       </section>
 
       <section>
-        <h2>Recent articles</h2>
+        <h2>Selected articles</h2>
         <ul class="papers" id="recent-papers"></ul>
         <p><a href="#research">See all research →</a></p>
       </section>
@@ -273,7 +276,7 @@
       return '<li><span class="news-date">' + esc(n.date) + "</span><span>" + n.text + "</span></li>";
     }).join("");
 
-    // Recent articles (4 newest)
+    // Selected articles (4 newest)
     var sorted = PAPERS.slice().sort(byDateDesc);
     document.getElementById("recent-papers").innerHTML = sorted.slice(0, 4).map(paperHTML).join("");
 
