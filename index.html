@@ -28,7 +28,7 @@
     "@type": "Person",
     "name": "Maxime Di Folco",
     "jobTitle": "Assistant Professor",
-    "affiliation": { "@type": "Organization", "name": "Télécom Paris, Institut Polytechnique de Paris" },
+    "affiliation": { "@type": "Organization", "name": "IMAGES team, LTCI, Télécom Paris, Institut Polytechnique de Paris" },
     "url": "https://maxdifolco.github.io/",
     "image": "https://maxdifolco.github.io/images/headshot-web.jpg",
     "sameAs": [
@@ -51,12 +51,17 @@
   <script>
   /* =====================================================================
      SITE DATA: edit here. One line per item.
-     - news:   newest first. `text` may contain HTML links.
-     - papers: `date` (YYYY-MM) sorts them; `project` places them on the
-               Research page; `thumb` is optional (images/papers/<file>).
-               "Maxime Di Folco" is bolded automatically.
-     - team:   `group` is one of "phd", "master", "alumni".
-               `photo` (images/team/<file>) and `link` are optional.
+     - news:     newest first. `text` may contain HTML links.
+     - papers:   `date` (YYYY-MM) sorts them; `project` places them on the
+                 Research page (must match a project `id`).
+                 `thumb` is the figure (images/papers/<file>); until the file
+                 exists a "Figure" placeholder is shown on the Research page.
+                 `abstract` is shown under the paper on the Research page.
+                 "Maxime Di Folco" is bolded automatically.
+     - projects: shown on the Research page in this order.
+     - team:     `group` is one of "postdoc", "phd", "master", "alumni".
+                 `cosup` (co-supervisors), `topic`, `years`,
+                 `photo` (images/team/<file>) and `link` are optional.
      ===================================================================== */
   var NEWS = [
     { date: "12.2025", text: '<a href="https://arxiv.org/abs/2512.19602">“No Data? No Problem”</a>, robust vision-tabular learning with missing values, released on arXiv.' },
@@ -70,41 +75,47 @@
       title: "No Data? No Problem: Robust Vision-Tabular Learning with Missing Values",
       authors: "Marta Hasny, Laura Daza, Keno Bressem, Maxime Di Folco, Julia A. Schnabel",
       venue: "arXiv preprint", year: 2025,
-      links: { paper: "https://arxiv.org/abs/2512.19602" }, thumb: "images/papers/nodata.png" },
+      links: { paper: "https://arxiv.org/abs/2512.19602", pdf: "https://arxiv.org/pdf/2512.19602", code: "https://github.com/marteczkah/RoVTL" },
+      thumb: "images/papers/nodata.png",
+      abstract: "Large-scale medical biobanks provide imaging data complemented by extensive tabular information, such as clinical measurements or demographics. However, this abundance of tabular attributes does not reflect real-world datasets, where only a subset of attributes may be available. This discrepancy calls for methods that remain robust to missing values at inference. To address this challenge, we propose RoVTL (Robust Vision-Tabular Learning), a framework designed to handle any level of tabular data availability, from 0% to 100%. RoVTL comprises two key stages: contrastive pretraining, where we introduce tabular attribute missingness as data augmentation to promote robustness, and downstream task tuning, where tabular missingness is complemented by a novel Tabular More vs. Fewer loss that ranks performance based on the amount of available tabular data. Combined with gated-cross attention fusion module, our tuning approach enables consistent performance across all tabular data completeness scenarios. We evaluate RoVTL on cardiac MRI scans from the UK Biobank, demonstrating superior robustness to missing tabular data compared to prior methods. Furthermore, RoVTL successfully generalizes to an external cardiac MRI dataset for multimodal disease classification, and extends to the natural images domain, achieving robust performance on a car advertisements dataset. The model weights and code are available at https://github.com/marteczkah/RoVTL." },
     { id: "tgv", date: "2025-03", project: "tabular",
       title: "Tables Guide Vision: Learning to See the Heart through Tabular Data",
       authors: "Marta Hasny, Maxime Di Folco, Keno Bressem, Julia A. Schnabel",
       venue: "arXiv preprint", year: 2025,
-      links: { paper: "https://arxiv.org/abs/2503.14998" }, thumb: "images/papers/tgv.png" },
+      links: { paper: "https://openreview.net/forum?id=QuWaV3NBm1", pdf: "https://openreview.net/pdf?id=QuWaV3NBm1", arXiv: "https://arxiv.org/abs/2503.14998", code: "https://github.com/marteczkah/tables_guide_vision" },
+      thumb: "images/papers/tgv.png",
+      abstract: "Contrastive learning methods in computer vision typically rely on augmented views of the same image or multimodal pretraining strategies that align paired modalities. However, these approaches often overlook semantic relationships between distinct instances, leading to false negatives when semantically similar samples are treated as negatives. This limitation is especially critical in medical imaging domains such as cardiology, where demographic and clinical attributes play a critical role in assessing disease risk and patient outcomes. We introduce a tabular-guided contrastive learning framework that leverages clinically relevant tabular data to identify patient-level similarities and construct more meaningful pairs, enabling semantically aligned representation learning without requiring joint embeddings across modalities. Additionally, we adapt the k-NN algorithm for zero-shot prediction to overcome the lack of zero-shot capability in unimodal representations. We demonstrate the strength of our methods using a large cohort of short-axis cardiac MR images and clinical attributes, where tabular data helps to more effectively distinguish between patient subgroups. Evaluation on downstream tasks, including fine-tuning, linear probing, and zero-shot prediction of cardiovascular artery diseases and cardiac phenotypes, shows that incorporating tabular data guidance yields stronger visual representations than conventional methods that rely solely on image augmentation or combined image-tabular embeddings. Further, we show that our method can generalize to natural images by evaluating it on a car advertisement dataset. Code is available at https://github.com/marteczkah/tables_guide_vision." },
     { id: "divergence", date: "2025-01", project: "cardiac",
       title: "Visualizing definitional divergence in high-dimensional data by manifold alignment: Application to 3D right ventricular strain computations",
       authors: "Maxime Di Folco, Gabriel Bernardino, Patrick Clarysse, Nicolas Duchateau",
       venue: "IEEE Transactions on Medical Imaging", year: 2026,
-      links: { paper: "https://arxiv.org/abs/2501.12178", code: "https://github.com/maxdifolco/definitional_divergence" },
-      thumb: "images/papers/divergence.png" },
+      links: { paper: "https://arxiv.org/abs/2501.12178", pdf: "https://arxiv.org/pdf/2501.12178", code: "https://github.com/maxdifolco/definitional_divergence" },
+      thumb: "images/papers/divergence.png",
+      abstract: "Medical imaging studies often rely on a single sample per subject, assuming it is representative of their physiological traits. However, variations in how input descriptors are defined or computed (e.g. due to a lack of consensus in the scientific field) may have a crucial impact on the analysis, and are hardly considered in practice. In this paper, we propose an original strategy based on representation learning to estimate a parametric map reflecting the impact of such definitional differences on a given physiological descriptor, previously extracted from medical images. We consider the different definitions or computations of such physiological descriptors as different high-dimensional data, potentially of heterogeneous types. We specifically focus on myocardial deformation (strain), for which there is limited agreement on its definition. We first use manifold alignment to match the latent representations associated with the different definitions of this descriptor. Then, we formulate plausible distributions in the latent space to represent definitional divergence across descriptors, from which we reconstruct a high-dimensional parametric map to visualize such definitional divergence. Due to the lack of proper ground truth for this specific clinical application, we first demonstrate this methodology on toy experiments and then expand the evaluation on right ventricular strain data from subjects obtained from 3D echocardiographic image sequences, for which different types of strain are available at each point of the right ventricle endocardial surface mesh. Beyond this illustrative application, our methodology has the potential to be generalised to many other population analyses considering heterogeneous high-dimensional descriptors." },
     { id: "shape-deformation", date: "2022-01", project: "cardiac",
       title: "Characterizing interactions between cardiac shape and deformation by non-linear manifold learning",
       authors: "Maxime Di Folco, Pamela Moceri, Patrick Clarysse, Nicolas Duchateau",
       venue: "Medical Image Analysis, vol. 75, 102278", year: 2022,
-      links: { paper: "https://hal.science/hal-03407714" }, thumb: "images/papers/shape-deformation.png" },
+      links: { paper: "https://www.sciencedirect.com/science/article/abs/pii/S1361841521003236", "open access": "https://hal.science/hal-03407714" },
+      thumb: "images/papers/shape-deformation.png",
+      abstract: "In clinical routine, high-dimensional descriptors of the cardiac function such as shape and deformation are reduced to scalars (e.g. volumes or ejection fraction), which limit the characterization of complex diseases. Besides, these descriptors undergo interactions depending on disease, which may bias their computational analysis. In this paper, we aim at characterizing such interactions by unsupervised manifold learning. We propose to use a sparsified version of Multiple Manifold Learning to align the latent spaces encoding each descriptor and weighting the strength of the alignment depending on each pair of samples. While this framework was up to now only applied to link different datasets from the same manifold, we demonstrate its relevance to characterize the interactions between different but partially related descriptors of the cardiac function (shape and deformation). We benchmark our approach against linear and non-linear embedding strategies, among which the fusion of manifolds by Multiple Kernel Learning, the independent embedding of each descriptor by Diffusion Maps, and a strict alignment based on pairwise correspondences. We first evaluated the methods on a synthetic dataset from a 0D cardiac model where the interactions between descriptors are fully controlled. Then, we transfered them to a population of right ventricular meshes from 310 subjects (100 healthy and 210 patients with right ventricular disease) obtained from 3D echocardiography, where the link between shape and deformation is key for disease understanding. Our experiments underline the relevance of jointly considering shape and deformation descriptors, and that manifold alignment is preferable over fusion for our application. They also confirm at a finer scale the characteristic traits of the right ventricular diseases in our population." },
   ];
 
   var PROJECTS = [
+    { id: "tabular",
+      title: "Vision-tabular learning",
+      focus: "Applications include cardiac MRI from the UK Biobank.",
+      text: "Large biobanks pair medical images with hundreds of clinical attributes. This project develops vision-tabular models that use tabular information to learn better image representations and that keep working when clinical data is partly or completely missing at inference." },
     { id: "cardiac",
       title: "Characterisation of cardiac shape and deformation",
       focus: "Focus: right ventricle, 3D echocardiography.",
       text: "Rich descriptors of cardiac function (3D shape, myocardial deformation) are usually reduced to scalars like volumes or ejection fraction. This project keeps them high-dimensional and uses manifold learning and manifold alignment to study how shape and deformation relate, how they change with disease, and how much they depend on how they are computed." },
-    { id: "tabular",
-      title: "Combining vision and tabular data",
-      focus: "Applications include cardiac MRI from the UK Biobank.",
-      text: "Large biobanks pair medical images with hundreds of clinical attributes. This project develops vision-tabular models that use tabular information to learn better image representations and that keep working when clinical data is partly or completely missing at inference." },
   ];
 
   var TEAM = [
-    { group: "phd",    name: "Firstname Lastname", role: "PhD student", years: "2025–", topic: "Placeholder thesis topic", photo: "", link: "" },
-    { group: "phd",    name: "Firstname Lastname", role: "PhD student (co-supervised)", years: "2025–", topic: "Placeholder thesis topic", photo: "", link: "" },
-    { group: "master", name: "Firstname Lastname", role: "Master's intern", years: "2026", topic: "Placeholder internship topic", photo: "", link: "" },
-    { group: "alumni", name: "Firstname Lastname", role: "Master's intern", years: "2025", topic: "Placeholder topic, now at …", photo: "", link: "" },
+    { group: "postdoc", name: "Shurong Zhang",     role: "Postdoctoral researcher", years: "", topic: "", cosup: "", photo: "", link: "" },
+    { group: "phd",     name: "Morgan Scalabrino", role: "PhD student", years: "", topic: "", cosup: "Pietro Gori and Elsa Angelini", photo: "", link: "" },
+    { group: "phd",     name: "Marta Hasny",       role: "PhD student", years: "", topic: "", cosup: "Keno Bressem and Julia Schnabel", photo: "", link: "" },
   ];
   </script>
 </head>
@@ -133,9 +144,9 @@
         <div class="profile-text">
           <h1 class="name">Maxime Di Folco, PhD</h1>
           <p class="subtitle">Assistant Professor in Computational Biomedical Imaging</p>
-          <p class="affiliation">Télécom Paris, Institut Polytechnique de Paris</p>
+          <p class="affiliation"><a href="https://www.telecom-paris.fr/en/research/labs/information-processing-ltci/teams/image-modeling-analysis-geometry-synthesis">IMAGES team</a>, LTCI, Télécom Paris, Institut Polytechnique de Paris</p>
 
-          <p>I am an Assistant Professor (Maître de conférences) at <a href="https://www.telecom-paris.fr/">Télécom Paris</a>, working on multimodal artificial intelligence for robust clinical decision support. My research integrates medical imaging and clinical data, with applications in cardiology and breast cancer, aiming to make AI-based clinical models more reliable, generalisable and fair.</p>
+          <p>I am an Assistant Professor (Maître de conférences) at <a href="https://www.telecom-paris.fr/">Télécom Paris</a>, in the <a href="https://www.telecom-paris.fr/en/research/labs/information-processing-ltci/teams/image-modeling-analysis-geometry-synthesis">IMAGES team</a> of the LTCI laboratory, working on multimodal artificial intelligence for robust clinical decision support. My research integrates medical imaging and clinical data, with applications in cardiology and breast cancer, aiming to make AI-based clinical models more reliable, generalisable and fair.</p>
           <p>Before this, I was a postdoctoral researcher in cardiac imaging at Helmholtz Munich and the Technical University of Munich, in the group of Prof. Julia Schnabel, working on representation learning for cardiac imaging and multimodal data. I did my PhD at Université de Lyon (CREATIS) with Nicolas Duchateau and Patrick Clarysse, on manifold learning to model and analyse cardiac function.</p>
 
           <ul class="links">
@@ -201,21 +212,41 @@
       });
     }
 
-    function paperHTML(p) {
+    // Title, authors, venue and links of a paper.
+    function paperMeta(p) {
       var authors = esc(p.authors).replace(ME, "<strong>" + ME + "</strong>");
       var links = Object.keys(p.links || {}).map(function (k) {
         return '<a href="' + esc(p.links[k]) + '">' + esc(k) + "</a>";
       }).join("");
+      return '<a class="papertitle" href="' + esc((p.links || {}).paper || "#") + '">' + esc(p.title) + "</a>" +
+        '<p class="paper-authors">' + authors + "</p>" +
+        '<p class="paper-venue"><em>' + esc(p.venue) + "</em>, " + esc(p.year) + "</p>" +
+        (links ? '<p class="paper-links">' + links + "</p>" : "");
+    }
+
+    // Compact entry (Home): thumbnail only if the image exists.
+    function paperHTML(p) {
       var thumb = p.thumb
         ? '<div class="paper-thumb"><img src="' + esc(p.thumb) + '" alt="" loading="lazy" onerror="this.parentNode.remove()"></div>'
         : "";
-      return '<li class="paper">' + thumb +
-        '<div class="paper-body">' +
-          '<a class="papertitle" href="' + esc((p.links || {}).paper || "#") + '">' + esc(p.title) + "</a>" +
-          '<p class="paper-authors">' + authors + "</p>" +
-          '<p class="paper-venue"><em>' + esc(p.venue) + "</em>, " + esc(p.year) + "</p>" +
-          (links ? '<p class="paper-links">' + links + "</p>" : "") +
-        "</div></li>";
+      return '<li class="paper">' + thumb + '<div class="paper-body">' + paperMeta(p) + "</div></li>";
+    }
+
+    var FIGURE_PLACEHOLDER = '<div class="figure-placeholder">Figure</div>';
+    function figurePlaceholder(img) { img.outerHTML = FIGURE_PLACEHOLDER; }
+
+    // Full entry (Research): figure, or a placeholder until it exists, then the abstract.
+    function researchPaperHTML(p) {
+      var figure = p.thumb
+        ? '<img src="' + esc(p.thumb) + '" alt="Figure from: ' + esc(p.title) + '" loading="lazy" onerror="figurePlaceholder(this)">'
+        : FIGURE_PLACEHOLDER;
+      return '<article class="article">' +
+        '<div class="article-head">' +
+          '<div class="article-figure">' + figure + "</div>" +
+          '<div class="paper-body">' + paperMeta(p) + "</div>" +
+        "</div>" +
+        (p.abstract ? '<div class="abstract"><span class="abstract-label">Abstract</span><p>' + esc(p.abstract) + "</p></div>" : "") +
+        "</article>";
     }
 
     function byDateDesc(a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; }
@@ -232,7 +263,8 @@
       return '<div class="person">' + avatar + "<div>" +
         '<div class="person-name">' + name + "</div>" +
         '<p class="person-role">' + esc(m.role) + (m.years ? ", " + esc(m.years) : "") + "</p>" +
-        '<p class="person-topic">' + esc(m.topic) + "</p>" +
+        (m.cosup ? '<p class="person-topic">Co-supervised with ' + esc(m.cosup) + "</p>" : "") +
+        (m.topic ? '<p class="person-topic">' + esc(m.topic) + "</p>" : "") +
         "</div></div>";
     }
 
@@ -252,16 +284,17 @@
         "<h3>" + esc(pr.title) + "</h3>" +
         "<p>" + esc(pr.text) + "</p>" +
         (pr.focus ? '<p class="project-focus">' + esc(pr.focus) + "</p>" : "") +
-        '<ul class="papers">' + papers.map(paperHTML).join("") + "</ul></section>";
+        papers.map(researchPaperHTML).join("") + "</section>";
     }).join("");
 
     // Team
-    var GROUPS = [["phd", "PhD students"], ["master", "Master's students"], ["alumni", "Alumni"]];
+    // Groups with nobody in them are not shown.
+    var GROUPS = [["postdoc", "Postdocs"], ["phd", "PhD students"], ["master", "Master's students"], ["alumni", "Alumni"]];
     document.getElementById("team-groups").innerHTML = GROUPS.map(function (g) {
       var people = TEAM.filter(function (m) { return m.group === g[0]; });
-      return "<h3>" + g[1] + "</h3>" + (people.length
-        ? '<div class="people">' + people.map(personHTML).join("") + "</div>"
-        : '<p class="empty">No one yet.</p>');
+      return people.length
+        ? "<h3>" + g[1] + '</h3><div class="people">' + people.map(personHTML).join("") + "</div>"
+        : "";
     }).join("");
 
     // Hash routing: #home, #research, #team
