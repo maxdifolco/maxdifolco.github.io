@@ -456,3 +456,5 @@ footer a { font-size: 13px; }
   .article-figure { width: 100%; max-width: 320px; }
   .abstract p { text-align: left; }
 }
+
+.email { font-weight: 700; overflow-wrap: anywhere; }
