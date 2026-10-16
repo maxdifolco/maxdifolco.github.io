@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Maxime Di Folco – Computational Biomedical Imaging, Télécom Paris</title>
-  <meta name="description" content="Maxime Di Folco, Assistant Professor at Télécom Paris (Institut Polytechnique de Paris). Multimodal AI combining medical imaging and clinical data for robust clinical decision support in cardiology and breast cancer.">
+  <meta name="description" content="Maxime Di Folco, Associate Professor at Télécom Paris (Institut Polytechnique de Paris). Multimodal AI combining medical imaging and clinical data for robust clinical decision support in cardiology and breast cancer.">
   <meta name="author" content="Maxime Di Folco">
   <link rel="canonical" href="https://maxdifolco.github.io/">
 
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Maxime Di Folco, PhD">
-  <meta property="og:description" content="Assistant Professor in Computational Biomedical Imaging at Télécom Paris, Institut Polytechnique de Paris.">
+  <meta property="og:description" content="Associate Professor in Computational Biomedical Imaging at Télécom Paris, Institut Polytechnique de Paris.">
   <meta property="og:url" content="https://maxdifolco.github.io/">
   <meta property="og:image" content="https://maxdifolco.github.io/images/headshot-web.jpg">
   <meta name="twitter:card" content="summary">
@@ -27,7 +27,7 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Maxime Di Folco",
-    "jobTitle": "Assistant Professor",
+    "jobTitle": "Associate Professor",
     "affiliation": { "@type": "Organization", "name": "IMAGES team, LTCI, Télécom Paris, Institut Polytechnique de Paris" },
     "url": "https://maxdifolco.github.io/",
     "image": "https://maxdifolco.github.io/images/headshot-web.jpg",
@@ -52,6 +52,7 @@
   /* =====================================================================
      SITE DATA: edit here. One line per item.
      - news:     newest first. `text` may contain HTML links.
+     - preprints: shown under "Recent preprints" on Home, newest first.
      - papers:   `date` (YYYY-MM) sorts them; `project` places them on the
                  Research page (must match a project `id`).
                  `thumb` is the figure (images/papers/<file>); until the file
@@ -68,9 +69,19 @@
     { date: "07.2026", text: "Marta Hasny presented her paper at ICML 2026." },
     { date: "06.2026", text: '<a href="https://arxiv.org/abs/2501.12178">“Visualizing definitional divergence”</a> accepted in IEEE Transactions on Medical Imaging.' },
     { date: "12.2025", text: "Started as Associate Professor (Maître de conférences) at Télécom Paris." },
-    { date: "12.2025", text: '<a href="https://arxiv.org/abs/2512.19602">“No Data? No Problem”</a>, robust vision-tabular learning with missing values, released on arXiv.' },
-    { date: "03.2025", text: '<a href="https://arxiv.org/abs/2503.14998">“Tables Guide Vision (TGV)”</a> released on arXiv.' },
-    { date: "01.2025", text: '<a href="https://arxiv.org/abs/2501.12178">“Visualizing definitional divergence”</a> released on arXiv.' },
+  ];
+
+  var PREPRINTS = [
+    { date: "2026-08",
+      title: "Cine Cardiac MRI Captures Cardiovascular Disease Risk Beyond Established Clinical Risk Factors: Evidence from the UK Biobank",
+      authors: "M. Hasny, L. Daza, K. Bressem, M. Di Folco, J. A. Schnabel",
+      venue: "medRxiv preprint", year: 2026,
+      links: { paper: "https://www.medrxiv.org/content/10.64898/2026.08.10.26360086v1", pdf: "https://www.medrxiv.org/content/10.64898/2026.08.10.26360086v1.full.pdf" } },
+    { date: "2026-07",
+      title: "Learning the shared structure of human health across diseases, modalities, and time",
+      authors: "P. Hager, B. Roth, N. Buehler, D. Lu, J. H. Burks, L. Shilova, R. Kfuri-Rubens, E. Roellin, J. Pan, M. Di Folco, E. Chan, J. A. Schnabel, L. Adams, D. Rueckert, F. J. Theis, F. P. Casale",
+      venue: "medRxiv preprint", year: 2026,
+      links: { paper: "https://www.medrxiv.org/content/10.64898/2026.07.07.26357373v1", pdf: "https://www.medrxiv.org/content/10.64898/2026.07.07.26357373v1.full.pdf" } },
   ];
 
   var PAPERS = [
@@ -146,10 +157,10 @@
       <section class="profile">
         <div class="profile-text">
           <h1 class="name">Maxime Di Folco, PhD</h1>
-          <p class="subtitle">Assistant Professor in Computational Biomedical Imaging</p>
+          <p class="subtitle">Associate Professor in Computational Biomedical Imaging</p>
           <p class="affiliation"><a href="https://www.telecom-paris.fr/en/research/labs/information-processing-ltci/teams/image-modeling-analysis-geometry-synthesis">IMAGES team</a>, LTCI, Télécom Paris, Institut Polytechnique de Paris</p>
 
-          <p>I am an Assistant Professor (Maître de conférences) at <a href="https://www.telecom-paris.fr/">Télécom Paris</a>, in the <a href="https://www.telecom-paris.fr/en/research/labs/information-processing-ltci/teams/image-modeling-analysis-geometry-synthesis">IMAGES team</a> of the LTCI laboratory, working on multimodal artificial intelligence for robust clinical decision support. My research integrates medical imaging and clinical data, with applications in cardiology and breast cancer, aiming to make AI-based clinical models more reliable, generalisable and fair.</p>
+          <p>I am an Associate Professor (Maître de conférences) at <a href="https://www.telecom-paris.fr/">Télécom Paris</a>, in the <a href="https://www.telecom-paris.fr/en/research/labs/information-processing-ltci/teams/image-modeling-analysis-geometry-synthesis">IMAGES team</a> of the LTCI laboratory, working on multimodal artificial intelligence for robust clinical decision support. My research integrates medical imaging and clinical data, with applications in cardiology and breast cancer, aiming to make AI-based clinical models more reliable, generalisable and fair.</p>
           <p>Before this, I was a postdoctoral researcher in cardiac imaging at Helmholtz Munich and the Technical University of Munich, in the group of Prof. Julia Schnabel, working on representation learning for cardiac imaging and multimodal data. I did my PhD at Université de Lyon (CREATIS) with Nicolas Duchateau and Patrick Clarysse, on manifold learning to model and analyse cardiac function.</p>
 
           <ul class="links">
@@ -170,6 +181,11 @@
       <section>
         <h2>News</h2>
         <div class="news-box"><ul id="news-list"></ul></div>
+      </section>
+
+      <section>
+        <h2>Recent preprints</h2>
+        <ul class="papers" id="recent-preprints"></ul>
       </section>
 
       <section>
@@ -207,7 +223,7 @@
   </footer>
 
   <script>
-    var ME = "Maxime Di Folco";
+    var ME_PATTERN = /(Maxime|M\.) Di Folco/;
 
     function esc(s) {
       return String(s).replace(/[&<>"]/g, function (c) {
@@ -217,7 +233,7 @@
 
     // Title, authors, venue and links of a paper.
     function paperMeta(p) {
-      var authors = esc(p.authors).replace(ME, "<strong>" + ME + "</strong>");
+      var authors = esc(p.authors).replace(ME_PATTERN, "<strong>$&</strong>");
       var links = Object.keys(p.links || {}).map(function (k) {
         return '<a href="' + esc(p.links[k]) + '">' + esc(k) + "</a>";
       }).join("");
@@ -275,6 +291,9 @@
     document.getElementById("news-list").innerHTML = NEWS.map(function (n) {
       return '<li><span class="news-date">' + esc(n.date) + "</span><span>" + n.text + "</span></li>";
     }).join("");
+
+    // Recent preprints
+    document.getElementById("recent-preprints").innerHTML = PREPRINTS.slice().sort(byDateDesc).map(paperHTML).join("");
 
     // Selected articles (4 newest)
     var sorted = PAPERS.slice().sort(byDateDesc);
