@@ -66,6 +66,7 @@
      ===================================================================== */
   var NEWS = [
     { date: "09.2026", text: 'Organised the <a href="https://multitab-miccai-2026.github.io/">MultiTab Workshop</a> at MICCAI 2026 (<a href="https://www.linkedin.com/feed/update/urn:li:activity:7510701162921390080">LinkedIn post</a>).' },
+    { date: "09.2026", text: 'Gave a talk at <a href="https://www.jdse.universite-paris-saclay.fr/jdse2026/">JDSE 2026</a>.' },
     { date: "07.2026", text: 'Marta Hasny presented <a href="https://arxiv.org/abs/2512.19602">“No Data? No Problem”</a> at ICML 2026.' },
     { date: "06.2026", text: '<a href="https://arxiv.org/abs/2501.12178">“Visualizing definitional divergence”</a> accepted in IEEE Transactions on Medical Imaging.' },
     { date: "12.2025", text: "Started as Associate Professor (Maître de conférences) at Télécom Paris." },
@@ -95,8 +96,8 @@
     { id: "tgv", date: "2025-03", project: "tabular",
       title: "Tables Guide Vision: Learning to See the Heart through Tabular Data",
       authors: "Marta Hasny, Maxime Di Folco, Keno Bressem, Julia A. Schnabel",
-      venue: "arXiv preprint", year: 2025,
-      links: { paper: "https://openreview.net/forum?id=QuWaV3NBm1", pdf: "https://openreview.net/pdf?id=QuWaV3NBm1", arXiv: "https://arxiv.org/abs/2503.14998", code: "https://github.com/marteczkah/tables_guide_vision" },
+      venue: "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)", year: 2026,
+      links: { paper: "https://openaccess.thecvf.com/content/WACV2026/html/Hasny_Tables_Guide_Vision_Learning_to_See_the_Heart_through_Tabular_WACV_2026_paper.html", pdf: "https://openaccess.thecvf.com/content/WACV2026/papers/Hasny_Tables_Guide_Vision_Learning_to_See_the_Heart_through_Tabular_WACV_2026_paper.pdf", OpenReview: "https://openreview.net/forum?id=QuWaV3NBm1", arXiv: "https://arxiv.org/abs/2503.14998", code: "https://github.com/marteczkah/tables_guide_vision" },
       thumb: "images/papers/tgv.png",
       abstract: "Contrastive learning methods in computer vision typically rely on augmented views of the same image or multimodal pretraining strategies that align paired modalities. However, these approaches often overlook semantic relationships between distinct instances, leading to false negatives when semantically similar samples are treated as negatives. This limitation is especially critical in medical imaging domains such as cardiology, where demographic and clinical attributes play a critical role in assessing disease risk and patient outcomes. We introduce a tabular-guided contrastive learning framework that leverages clinically relevant tabular data to identify patient-level similarities and construct more meaningful pairs, enabling semantically aligned representation learning without requiring joint embeddings across modalities. Additionally, we adapt the k-NN algorithm for zero-shot prediction to overcome the lack of zero-shot capability in unimodal representations. We demonstrate the strength of our methods using a large cohort of short-axis cardiac MR images and clinical attributes, where tabular data helps to more effectively distinguish between patient subgroups. Evaluation on downstream tasks, including fine-tuning, linear probing, and zero-shot prediction of cardiovascular artery diseases and cardiac phenotypes, shows that incorporating tabular data guidance yields stronger visual representations than conventional methods that rely solely on image augmentation or combined image-tabular embeddings. Further, we show that our method can generalize to natural images by evaluating it on a car advertisement dataset. Code is available at https://github.com/marteczkah/tables_guide_vision." },
     { id: "divergence", date: "2025-01", project: "cardiac",
@@ -128,8 +129,8 @@
 
   var TEAM = [
     { group: "postdoc", name: "Shurong Zhang",     role: "Postdoctoral researcher", years: "", topic: "", cosup: "", link: "" },
-    { group: "phd",     name: "Morgan Scalabrino", role: "PhD student", years: "", topic: "", cosup: "Pietro Gori and Elsa Angelini", link: "" },
-    { group: "phd",     name: "Marta Hasny",       role: "PhD student", years: "", topic: "", cosup: "Keno Bressem and Julia Schnabel", link: "" },
+    { group: "phd",     name: "Morgan Scalabrino", role: "PhD student", years: "2026–", topic: "Multimodal representation learning for breast cancer decision support from imaging and clinical data", cosup: "Pietro Gori and Elsa Angelini", link: "https://morganscalabrino.github.io/" },
+    { group: "phd",     name: "Marta Hasny",       role: "PhD student, TUM", years: "2024–", topic: "Cardiac foundation models", cosup: "Keno Bressem and Julia Schnabel", link: "https://compai-lab.github.io/author/marta-hasny/" },
   ];
   </script>
 </head>
@@ -275,8 +276,8 @@
       return '<div class="person"><div>' +
         '<div class="person-name">' + name + "</div>" +
         '<p class="person-role">' + esc(m.role) + (m.years ? ", " + esc(m.years) : "") + "</p>" +
-        (m.cosup ? '<p class="person-topic">Co-supervised with ' + esc(m.cosup) + "</p>" : "") +
         (m.topic ? '<p class="person-topic">' + esc(m.topic) + "</p>" : "") +
+        (m.cosup ? '<p class="person-role">Co-supervised with ' + esc(m.cosup) + "</p>" : "") +
         "</div></div>";
     }
 
