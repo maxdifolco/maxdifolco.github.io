@@ -457,4 +457,4 @@ footer a { font-size: 13px; }
   .abstract p { text-align: left; }
 }
 
-.email { font-weight: 700; overflow-wrap: anywhere; }
+.email { color: var(--link); font-weight: 700; overflow-wrap: anywhere; }
