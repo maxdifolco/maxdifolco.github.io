@@ -61,8 +61,8 @@
                  "Maxime Di Folco" is bolded automatically.
      - projects: shown on the Research page in this order.
      - team:     `group` is one of "postdoc", "phd", "master", "alumni".
-                 `cosup` (co-supervisors), `topic`, `years`,
-                 `photo` (images/team/<file>) and `link` are optional.
+                 `cosup` (co-supervisors), `topic`, `years` and `link`
+                 are optional.
      ===================================================================== */
   var NEWS = [
     { date: "09.2026", text: 'Organised the <a href="https://multitab-miccai-2026.github.io/">MultiTab Workshop</a> at MICCAI 2026 (<a href="https://www.linkedin.com/feed/update/urn:li:activity:7510701162921390080">LinkedIn post</a>).' },
@@ -127,9 +127,9 @@
   ];
 
   var TEAM = [
-    { group: "postdoc", name: "Shurong Zhang",     role: "Postdoctoral researcher", years: "", topic: "", cosup: "", photo: "", link: "" },
-    { group: "phd",     name: "Morgan Scalabrino", role: "PhD student", years: "", topic: "", cosup: "Pietro Gori and Elsa Angelini", photo: "", link: "" },
-    { group: "phd",     name: "Marta Hasny",       role: "PhD student", years: "", topic: "", cosup: "Keno Bressem and Julia Schnabel", photo: "", link: "" },
+    { group: "postdoc", name: "Shurong Zhang",     role: "Postdoctoral researcher", years: "", topic: "", cosup: "", link: "" },
+    { group: "phd",     name: "Morgan Scalabrino", role: "PhD student", years: "", topic: "", cosup: "Pietro Gori and Elsa Angelini", link: "" },
+    { group: "phd",     name: "Marta Hasny",       role: "PhD student", years: "", topic: "", cosup: "Keno Bressem and Julia Schnabel", link: "" },
   ];
   </script>
 </head>
@@ -270,16 +270,9 @@
 
     function byDateDesc(a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; }
 
-    function initials(name) {
-      return name.split(/\s+/).map(function (w) { return w[0]; }).join("").slice(0, 2).toUpperCase();
-    }
-
     function personHTML(m) {
-      var avatar = m.photo
-        ? '<img class="avatar" src="' + esc(m.photo) + '" alt="">'
-        : '<div class="avatar" aria-hidden="true">' + esc(initials(m.name)) + "</div>";
       var name = m.link ? '<a href="' + esc(m.link) + '">' + esc(m.name) + "</a>" : esc(m.name);
-      return '<div class="person">' + avatar + "<div>" +
+      return '<div class="person"><div>' +
         '<div class="person-name">' + name + "</div>" +
         '<p class="person-role">' + esc(m.role) + (m.years ? ", " + esc(m.years) : "") + "</p>" +
         (m.cosup ? '<p class="person-topic">Co-supervised with ' + esc(m.cosup) + "</p>" : "") +
