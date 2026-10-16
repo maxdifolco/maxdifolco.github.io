@@ -65,8 +65,8 @@
                  `photo` (images/team/<file>) and `link` are optional.
      ===================================================================== */
   var NEWS = [
-    { date: "09.2026", text: "Organised the Multitab Workshop at MICCAI 2026." },
-    { date: "07.2026", text: "Marta Hasny presented her paper at ICML 2026." },
+    { date: "09.2026", text: 'Organised the <a href="https://multitab-miccai-2026.github.io/">MultiTab Workshop</a> at MICCAI 2026 (<a href="https://www.linkedin.com/feed/update/urn:li:activity:7510701162921390080">LinkedIn post</a>).' },
+    { date: "07.2026", text: 'Marta Hasny presented <a href="https://arxiv.org/abs/2512.19602">“No Data? No Problem”</a> at ICML 2026.' },
     { date: "06.2026", text: '<a href="https://arxiv.org/abs/2501.12178">“Visualizing definitional divergence”</a> accepted in IEEE Transactions on Medical Imaging.' },
     { date: "12.2025", text: "Started as Associate Professor (Maître de conférences) at Télécom Paris." },
   ];
@@ -88,7 +88,7 @@
     { id: "nodata", date: "2025-12", project: "tabular",
       title: "No Data? No Problem: Robust Vision-Tabular Learning with Missing Values",
       authors: "Marta Hasny, Laura Daza, Keno Bressem, Maxime Di Folco, Julia A. Schnabel",
-      venue: "arXiv preprint", year: 2025,
+      venue: "International Conference on Machine Learning (ICML)", year: 2026,
       links: { paper: "https://arxiv.org/abs/2512.19602", pdf: "https://arxiv.org/pdf/2512.19602", code: "https://github.com/marteczkah/RoVTL" },
       thumb: "images/papers/nodata.png",
       abstract: "Large-scale medical biobanks provide imaging data complemented by extensive tabular information, such as clinical measurements or demographics. However, this abundance of tabular attributes does not reflect real-world datasets, where only a subset of attributes may be available. This discrepancy calls for methods that remain robust to missing values at inference. To address this challenge, we propose RoVTL (Robust Vision-Tabular Learning), a framework designed to handle any level of tabular data availability, from 0% to 100%. RoVTL comprises two key stages: contrastive pretraining, where we introduce tabular attribute missingness as data augmentation to promote robustness, and downstream task tuning, where tabular missingness is complemented by a novel Tabular More vs. Fewer loss that ranks performance based on the amount of available tabular data. Combined with gated-cross attention fusion module, our tuning approach enables consistent performance across all tabular data completeness scenarios. We evaluate RoVTL on cardiac MRI scans from the UK Biobank, demonstrating superior robustness to missing tabular data compared to prior methods. Furthermore, RoVTL successfully generalizes to an external cardiac MRI dataset for multimodal disease classification, and extends to the natural images domain, achieving robust performance on a car advertisements dataset. The model weights and code are available at https://github.com/marteczkah/RoVTL." },
