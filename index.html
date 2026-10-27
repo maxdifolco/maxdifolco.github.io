@@ -59,6 +59,7 @@
                  `abstract` is shown under the paper on the Research page.
                  "Maxime Di Folco" is bolded automatically.
      - projects: shown on the Research page in this order.
+     - offers:   open positions (Positions tab). `pdf` lives in offers/.
      - team:     `group` is one of "postdoc", "phd", "master", "alumni".
                  `cosup` (co-supervisors), `topic`, `years` and `link`
                  are optional.
@@ -126,6 +127,15 @@
       text: "Rich descriptors of cardiac function (3D shape, myocardial deformation) are usually reduced to scalars like volumes or ejection fraction. This project keeps them high-dimensional and uses manifold learning and manifold alignment to study how shape and deformation relate, how they change with disease, and how much they depend on how they are computed." },
   ];
 
+  var OFFERS = [
+    { title: "Tabular Foundation Models for Rare Classes: In-Context Learning from a Handful of Biomedical Samples",
+      type: "Master's thesis", details: "Spring 2027 · 4–6 months", pdf: "offers/msc_icl.pdf" },
+    { title: "Data-Efficient Dense Self-Supervised Learning for Breast Tumour Segmentation",
+      type: "Master's thesis", details: "Spring 2027 · 4–6 months", pdf: "offers/msc_dense_ssl_breast.pdf" },
+    { title: "Decision Models for Medical Decision Support",
+      type: "Master's thesis", details: "Spring 2027 · 4–6 months", pdf: "offers/msc_decision_models.pdf" },
+  ];
+
   var TEAM = [
     { group: "postdoc", name: "Shurong Zhang",     role: "Postdoctoral researcher", years: "2026–", topic: "", cosup: "", link: "" },
     { group: "phd",     name: "Morgan Scalabrino", role: "PhD student, Télécom Paris, IP Paris", years: "2026–", topic: "Multimodal representation learning for breast cancer decision support from imaging and clinical data", cosup: "Pietro Gori and Elsa Angelini", link: "https://morganscalabrino.github.io/" },
@@ -142,6 +152,7 @@
         <a href="#home" data-page="home">Home</a>
         <a href="#research" data-page="research">Research</a>
         <a href="#team" data-page="team">Team</a>
+        <a href="#positions" data-page="positions">Positions</a>
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M1.5 12H4M20 12h2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
@@ -210,7 +221,16 @@
         <h2>Team</h2>
         <div id="team-groups"></div>
       </section>
-      <p class="callout"><strong>Join the team.</strong> I am looking for motivated students and researchers for Master's internships, PhD positions and postdocs in multimodal AI for medical imaging. Send your CV and a short description of your interests to <span class="email">maxime[dot]difolco[at]telecom-paris[dot]fr</span>.</p>
+      <p class="callout"><strong>Join the team.</strong> I am looking for motivated students and researchers for Master's internships, PhD positions and postdocs in multimodal AI for medical imaging. Send your CV and a short description of your interests to <span class="email">maxime[dot]difolco[at]telecom-paris[dot]fr</span>. See the <a href="#positions">open positions</a>.</p>
+    </div>
+
+    <!-- ========================== POSITIONS ========================= -->
+    <div class="page" id="page-positions">
+      <section>
+        <h2>Open positions</h2>
+        <div class="offers" id="offers"></div>
+      </section>
+      <p class="callout">Spontaneous applications for Master's internships, PhD positions and postdocs are also welcome. Send your CV and a short description of your interests to <span class="email">maxime[dot]difolco[at]telecom-paris[dot]fr</span>.</p>
     </div>
   </main>
 
@@ -312,8 +332,19 @@
         : "";
     }).join("");
 
+    // Open positions
+    document.getElementById("offers").innerHTML = OFFERS.length
+      ? OFFERS.map(function (o) {
+          return '<div class="offer">' +
+            '<p class="offer-type">' + esc(o.type) + (o.details ? " · " + esc(o.details) : "") + "</p>" +
+            '<h3 class="offer-title">' + esc(o.title) + "</h3>" +
+            '<a class="offer-link" href="' + esc(o.pdf) + '" target="_blank" rel="noopener">View the offer (PDF)</a>' +
+            "</div>";
+        }).join("")
+      : '<p class="empty">No open positions at the moment.</p>';
+
     // Hash routing: #home, #research, #team
-    var PAGES = ["home", "research", "team"];
+    var PAGES = ["home", "research", "team", "positions"];
     function route() {
       var page = location.hash.replace("#", "");
       if (PAGES.indexOf(page) === -1) page = "home";

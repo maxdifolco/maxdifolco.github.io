@@ -458,3 +458,53 @@ footer a { font-size: 13px; }
 }
 
 .email { color: var(--link); font-weight: 700; overflow-wrap: anywhere; }
+
+/* ---------- Open positions ---------- */
+.offers {
+  display: grid;
+  gap: 16px;
+}
+.offer {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--link);
+  border-radius: 10px;
+  padding: 16px 20px;
+  background: var(--bg-soft);
+}
+.offer-type {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.offer-title {
+  margin: 4px 0 10px;
+  font-size: 17px;
+  line-height: 1.4;
+}
+.offer-link {
+  display: inline-block;
+  font-weight: 700;
+  padding: 6px 14px;
+  border: 1px solid var(--link);
+  border-radius: 6px;
+}
+.offer-link:hover {
+  border-color: var(--link-hover);
+}
+
+/* Small screens: menu links on their own row under the name */
+@media (max-width: 640px) {
+  .topnav .container {
+    flex-wrap: wrap;
+    height: auto;
+    padding-top: 8px;
+    padding-bottom: 6px;
+    row-gap: 2px;
+  }
+  .navlinks { width: 100%; justify-content: space-between; }
+  .navlinks a { padding: 6px 6px; }
+  .brand-long { display: inline; }
+}
